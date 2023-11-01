@@ -1,18 +1,14 @@
 {
-  "name": "uk.co.workingedge.phonegap.plugins.example.compassaccuracy",
-  "version": "2.1.0",
+  "name": "cordova-plugin-compass-accuracy-example",
+  "version": "1.0.0",
   "displayName": "Compass Accuracy example",
   "cordova": {
     "platforms": [
-      "ios",
       "android"
     ],
     "plugins": {
       "cordova-plugin-device-orientation": {}
     }
-  },
-  "dependencies": {
-    "cordova-ios": "latest"
   },
   "devDependencies": {
     "cordova-android": "^12.0.1",

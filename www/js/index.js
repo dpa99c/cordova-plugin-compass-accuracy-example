@@ -63,7 +63,7 @@ function stopCompass(){
 
 function onHeadingUpdate(heading){
     var currentHeading = parseInt(heading.trueHeading)
-    $('#compass .data .heading').text(currentHeading + "°");
+    $('#compass .data .heading').html(currentHeading + "&deg;");
     $('#compass .bezel').css('transform', 'rotate(' + currentHeading + 'deg)');
 }
 
