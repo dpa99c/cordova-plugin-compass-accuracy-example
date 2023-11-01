@@ -7,30 +7,49 @@ function onDeviceReady(){
 
 
 function startMonitoring(){
-    cordova.plugins.compassAccuracy.startMonitoring(handleStartResult, function(error){
+    var requiredAccuracy = $('#requiredAccuracy').val();
+    cordova.plugins.compassAccuracy.startMonitoring(onAccuracyResult, function(error){
             onError("Error starting monitoring: " + JSON.stringify(error));
-        }
-    );
+        }, requiredAccuracy);
 }
 
-function handleStartResult(result){
+function onAccuracyResult(result){
     if(result.type === cordova.plugins.compassAccuracy.RESULT_TYPE.STARTED){
         $('body').addClass("startedMonitoring");
-        handleSuccess("Started monitoring accuracy");
+        log("Started monitoring accuracy");
     }
-    if(result.accuracy !== undefined){
-        handleSuccess("Accuracy changed: " + result.accuracy);
+    if(result.currentAccuracy !== undefined){
+        log("Accuracy changed: " + result.currentAccuracy);
+        $('#current-accuracy .value').text(result.currentAccuracy);
     }
+    console.dir(result);
 }
+
 
 function stopMonitoring(){
     cordova.plugins.compassAccuracy.stopMonitoring(function(){
             $('body').removeClass("startedMonitoring");
-            handleSuccess("Stopped monitoring accuracy");
+            log("Stopped monitoring accuracy");
         }, function(error){
             onError("Error stopping monitoring: " + JSON.stringify(error));
         }
     );
+}
+
+function simulateAccuracyChange(){
+    var simulatedAccuracy = $('#simulatedAccuracy').val();
+    cordova.plugins.compassAccuracy.simulateAccuracyChange(simulatedAccuracy, function(){
+            log("Simulated accuracy change to " + simulatedAccuracy);
+        }, function(error){
+            onError("Error simulating accuracy change: " + JSON.stringify(error));
+        }
+    );
+}
+
+// for use from the console
+window.setSimulatedAccuracyAndChange = function (accuracy){
+    $('#simulatedAccuracy').val(accuracy);
+    simulateAccuracyChange();
 }
 
 function startCompass(){
@@ -54,7 +73,7 @@ function onError(error){
     alert(msg);
 }
 
-function handleSuccess(msg){
+function log(msg){
     console.log(msg);
 }
 

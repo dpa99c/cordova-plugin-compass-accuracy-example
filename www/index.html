@@ -31,8 +31,12 @@
             padding-top: 0;
         }
 
-        button{
+        button, select{
             margin-bottom: 16px;
+        }
+
+        hr{
+            margin: 16px 0;
         }
 
         #compass .bezel{
@@ -59,10 +63,28 @@
 <h1>cordova-plugin-compass-accuracy example</h1>
 
 <div id="monitoring">
+    <label>Required accuracy: </label>
+    <select id="requiredAccuracy">
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+    </select>
     <button id="startMonitoring" onclick="startMonitoring()">Start monitoring accuracy</button>
     <button id="stopMonitoring" onclick="stopMonitoring()">Stop monitoring accuracy</button>
-    <p id="current-accuracy">Current accuracy</p>
+    <p id="current-accuracy">Current accuracy: <span class="value">unknown</span></p>
+
+    <hr/>
+
+    <label>Simulated accuracy: </label>
+    <select id="simulatedAccuracy">
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low" selected>Low</option>
+    </select>
+    <button id="simulateAccuracyChange" onclick="simulateAccuracyChange()">Simulate accuracy change</button>
 </div>
+
+<hr/>
 
 <div id="compass">
     <button id="startCompass" onclick="startCompass()">Start compass</button>

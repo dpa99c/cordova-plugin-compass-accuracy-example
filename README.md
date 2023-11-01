@@ -3,6 +3,8 @@ Cordova Compass Accuracy Plugin Example
 
 This repo contains an example project which illustrates use of the [Cordova Compass Accuracy Plugin](https://github.com/dpa99c/cordova-plugin-compass-accuracy) for Android and iOS.
 
+<img src="https://raw.githubusercontent.com/dpa99c/cordova-plugin-compass-accuracy-example/master/screenshots/android.png" width="300" alt="Android screenshot">
+<img src="https://raw.githubusercontent.com/dpa99c/cordova-plugin-compass-accuracy-example/master/screenshots/ios.png" width="300" alt="iOS screenshot">
 
 ## Contents
 * [Downloading](#downloading)
