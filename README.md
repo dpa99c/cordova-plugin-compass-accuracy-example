@@ -1,10 +1,9 @@
 Cordova Compass Accuracy Plugin Example
 ================================================
 
-An example project which illustrates use of the [Cordova Compass Accuracy Plugin](https://github.com/dpa99c/cordova-plugin-compass-accuracy) for Android and iOS.
+An example project which illustrates use of the [Cordova Compass Accuracy Plugin](https://github.com/dpa99c/cordova-plugin-compass-accuracy) for Android.
 
-<img src="https://raw.githubusercontent.com/dpa99c/cordova-plugin-compass-accuracy-example/master/screenshots/android.png" width="300" alt="Android screenshot">
-<img src="https://raw.githubusercontent.com/dpa99c/cordova-plugin-compass-accuracy-example/master/screenshots/ios.png" width="300" alt="iOS screenshot">
+<img src="https://raw.githubusercontent.com/dpa99c/cordova-plugin-compass-accuracy-example/master/screenshots/plugin.png" width="300" alt="Plugin dialog on Android">
 
 ## Contents
 * [Downloading](#downloading)
@@ -19,20 +18,15 @@ To download the example project, clone it using git:
 
 # Building and running
 
-**IMPORTANT:** Note that this plugin is intended for use in a **native** Android or iOS environment.
-It will **NOT** work in a browser-emulated Cordova environment.
-
-To run the example app, connect a Android/iOS device and execute the following commands from the project root.
+To run the example app, connect an Android device and execute the following commands from the project root.
 
 - Install the platform into the project:
 
     `$ cordova platform add android`
-    `$ cordova platform add ios`
 
 - Build and run the project:
 
     `$ cordova run android`
-    `$ cordova run ios`
 
 
 # License

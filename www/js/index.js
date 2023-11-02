@@ -1,20 +1,19 @@
-var platform, compassWatchId;
+var compassWatchId;
 
 function onDeviceReady(){
-    platform = cordova.platformId;
-    $('body').addClass(platform);
+    log("Device ready");
 }
 
 
 function startMonitoring(){
     var requiredAccuracy = $('#requiredAccuracy').val();
-    cordova.plugins.compassAccuracy.startMonitoring(onAccuracyResult, function(error){
+    CompassAccuracy.startMonitoring(onAccuracyResult, function(error){
             onError("Error starting monitoring: " + JSON.stringify(error));
         }, requiredAccuracy);
 }
 
 function onAccuracyResult(result){
-    if(result.type === cordova.plugins.compassAccuracy.RESULT_TYPE.STARTED){
+    if(result.type === CompassAccuracy.RESULT_TYPE.STARTED){
         $('body').addClass("startedMonitoring");
         log("Started monitoring accuracy");
     }
@@ -27,7 +26,7 @@ function onAccuracyResult(result){
 
 
 function stopMonitoring(){
-    cordova.plugins.compassAccuracy.stopMonitoring(function(){
+    CompassAccuracy.stopMonitoring(function(){
             $('body').removeClass("startedMonitoring");
             log("Stopped monitoring accuracy");
         }, function(error){
@@ -38,7 +37,7 @@ function stopMonitoring(){
 
 function simulateAccuracyChange(){
     var simulatedAccuracy = $('#simulatedAccuracy').val();
-    cordova.plugins.compassAccuracy.simulateAccuracyChange(simulatedAccuracy, function(){
+    CompassAccuracy.simulateAccuracyChange(simulatedAccuracy, function(){
             log("Simulated accuracy change to " + simulatedAccuracy);
         }, function(error){
             onError("Error simulating accuracy change: " + JSON.stringify(error));
@@ -46,7 +45,7 @@ function simulateAccuracyChange(){
     );
 }
 
-// for use from the console
+// for use from the console e.g. window.setSimulatedAccuracyAndChange(CompassAccuracy.ACCURACY.HIGH);
 window.setSimulatedAccuracyAndChange = function (accuracy){
     $('#simulatedAccuracy').val(accuracy);
     simulateAccuracyChange();

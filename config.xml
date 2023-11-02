@@ -11,5 +11,4 @@
     <access origin="*" />
     <preference name="Fullscreen" value="false" />
     <platform name="android" />
-    <platform name="ios" />
 </widget>
